@@ -5,12 +5,50 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+# 5.times do
+#
+#   post = Post.create(
+#           title: Faker::GameOfThrones.house,
+#           body: Faker::Hipster.paragraph
+#   )
 
-5.times do
+# end
 
-  post = Post.create(
-          title: Faker::GameOfThrones.house,
-          body: Faker::Hipster.paragraph
+10.times do
+
+  user = User.create(
+         name: Faker::GameOfThrones.character,
+         bio: Faker::Hipster.paragraph,
+         email: Faker::Internet.email
+
   )
+  10.times do
+    user.posts << Post.new(
+                   title: Faker::GameOfThrones.dragon,
+                   body: Faker::ChuckNorris.fact
+    )
 
+    10.times do
+      user.posts.last.comments << Comment.new(
+                                   body: Faker::GameOfThrones.city
+      )
+    end
+  end
 end
+
+# 5.times do
+#
+#   author = Author.create(
+#       name: Faker::Book.author,
+#       email: Faker::Internet.email,
+#       bio: Faker::Hipster.paragraph
+#   )
+#
+#   5.times do
+#     author.books << Book.new(
+#         title: Faker::Book.title,
+#         summary: Faker::Hipster.paragraphs
+#     )
+#   end
+# end
