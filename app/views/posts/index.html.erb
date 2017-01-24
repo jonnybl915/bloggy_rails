@@ -14,8 +14,13 @@
     <tbody>
     <% @posts.each do |post| %>
         <tr>
-          <td><%= post.title %> </td>
+
+          <td>
+            <a href="/posts/<%= post.id %>"> <%= post.title %> </a>
+          </td>
+
           <td><%= post.body %> </td>
+
         </tr>
     <% end %>
     </tbody>
