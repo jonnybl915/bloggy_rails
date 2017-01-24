@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
 
-  put '/posts' => 'posts#update'
+  put '/posts/update/:id' => 'posts#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

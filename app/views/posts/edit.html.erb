@@ -10,7 +10,7 @@
   Time to Edit
   </strong>
 
-  <%= form_tag '/posts' do %>
+  <%= form_tag "/posts/update/#{@post.id}", method: :put do %>
       <p>Title</p>
       <input type="text" placeholder="write title here..." name="title" value="<%= @post.title %>">
       <p>Description</p>
