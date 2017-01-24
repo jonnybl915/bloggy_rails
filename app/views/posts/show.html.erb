@@ -13,14 +13,14 @@
 
   <h4>Comments</h4>
   <ul>
-      <%= if @comments != nil %>
+
         <%= @comments.each do |comment| %>
 
             <li <%= comment.body%> </li>
               <p> by: <%=comment.user.email%> </p>
 
-        <% end %>
-      <% end %>
+       <% end %>
+
   </ul>
 
   meanwhile, <a href="/">back home...</a>

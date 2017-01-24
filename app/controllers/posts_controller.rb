@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
   def show
     @post = Post.find params[:id]
+    @comments = Comment.find_by_post(@post)
   end
   def create
     Post.create(
@@ -29,8 +30,5 @@ class PostsController < ApplicationController
             body: params[:body]
     )
     redirect_to '/'
-  end
-  def find_comments
-    @comments = Comment.find_by_post(:post.id)
   end
 end
