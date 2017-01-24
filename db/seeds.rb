@@ -18,8 +18,6 @@
 10.times do
 
   user = User.create(
-         name: Faker::GameOfThrones.character,
-         bio: Faker::Hipster.paragraph,
          email: Faker::Internet.email
 
   )
@@ -31,7 +29,8 @@
 
     10.times do
       user.posts.last.comments << Comment.new(
-                                   body: Faker::GameOfThrones.city
+                                   body: Faker::GameOfThrones.city,
+                                   user: user
       )
     end
   end

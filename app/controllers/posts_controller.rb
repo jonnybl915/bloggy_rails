@@ -30,4 +30,7 @@ class PostsController < ApplicationController
     )
     redirect_to '/'
   end
+  def find_comments
+    @comments = Comment.find_by_post(:post.id)
+  end
 end
