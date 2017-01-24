@@ -8,7 +8,7 @@
 <p><%= @post.body %></p>
 
 <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
-
+<p>Post created by: <%=User.find(@post.user_id).email %></p>
 <p>
 meanwhile, <a href="/">back home...</a>
 </p>

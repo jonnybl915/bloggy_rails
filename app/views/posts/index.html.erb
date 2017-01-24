@@ -4,9 +4,10 @@
   <h2>All Posts</h2>
 
 
-
-  <%= form_tag '/sign_in' do %>
-      <button type="submit" >Log In</button>
+  <% if current_user == nil %>
+      <%= form_tag '/users/sign_in' do %>
+          <button type="submit" >Log In</button>
+      <% end %>
   <% end %>
 
 
@@ -35,6 +36,10 @@
   </table>
 
 
-  </ul>
+  <% if current_user != nil %>
+      <%= form_tag '/users/sign_out', method: :delete do %>
+          <button type="submit" >Log Out</button>
+      <% end %>
+  <% end %>
 </head>
 </html>

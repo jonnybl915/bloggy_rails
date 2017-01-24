@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     Post.create(
             title: params[:title],
             body: params[:body],
-            user: params[:user]
+            user_id: params[:user]
     )
     redirect_to '/'
   end
