@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>all posts</title>
+  <h2>All Posts</h2>
+
+  <a href="/posts/new">Create a Post</a>
+  <table>
+    <head>
+      <tr>
+        <th>Post</th>
+        <th>Description</th>
+      </tr>
+    </head>
+    <tbody>
+    <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %> </td>
+          <td><%= post.body %> </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+  </ul>
+</head>
+</html>
