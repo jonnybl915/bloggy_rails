@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   get '/posts/new' => 'posts#new'
 
   get '/' => 'posts#index'
