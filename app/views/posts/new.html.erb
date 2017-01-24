@@ -6,20 +6,21 @@
 
 <body>
 <div id="app-container">
-  <strong>
-    We need new Posts
-  </strong>
+      <strong>
+        We need new Posts
+      </strong>
 
-      <a href="/users/sign_in">please sign in</a>
-      </div>
 
-  <%= form_tag '/posts' do %>
-      <p>Title</p>
-      <input type="text" placeholder="write title here..." name="title">
-      <p>Description</p>
-      <input type="text" placeholder="body..." name="body">
 
-      <button>Create Post</button>
-  <% end %>
+
+      <%= form_tag '/posts' do %>
+          <p>Title</p>
+          <input type="text" placeholder="write title here..." name="title">
+          <p>Description</p>
+          <input type="text" placeholder="body..." name="body">
+
+          <button>Create Post</button>
+      <% end %>
+    </div>
   </body>
 </html>

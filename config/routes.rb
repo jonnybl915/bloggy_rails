@@ -4,9 +4,15 @@ Rails.application.routes.draw do
 
   get '/' => 'posts#index'
 
+  get '/posts/edit/:id' => 'posts#edit'
+
   get '/posts/:id' => 'posts#show'
 
   post '/posts' => 'posts#create'
+
+
+
+  put '/posts' => 'posts#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

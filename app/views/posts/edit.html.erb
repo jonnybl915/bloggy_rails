@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/assets/stylesheets/applications.css">
+</head>
+
+<body>
+<div id="app-container">
+  <strong>
+  Time to Edit
+  </strong>
+
+  <%= form_tag '/posts' do %>
+      <p>Title</p>
+      <input type="text" placeholder="write title here..." name="title" value="<%= @post.title %>">
+      <p>Description</p>
+      <input type="text" placeholder="body..." value="<%= @post.body %>" name="body">
+
+      <button>Edit Post</button>
+  <% end %>
+</div>
+</body>
+</html>
