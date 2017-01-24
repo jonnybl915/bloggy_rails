@@ -7,6 +7,13 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
   def show
-    @posts = Post.find params[:id]
+    @post = Post.find params[:id]
+  end
+  def create
+    Post.create(
+            title: params[:title],
+            body: params[:body]
+    )
+    redirect_to '/'
   end
 end
