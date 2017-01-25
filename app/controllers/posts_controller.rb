@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
   def show
     @post = Post.find params[:id]
-    @comments = Comment.find_by_post(@post)
+    @comments = @post.comments
   end
   def create
     Post.create(
