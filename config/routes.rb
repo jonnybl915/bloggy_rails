@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post 'posts/:id/favorites' => 'posts#favorite'
   delete 'posts/:id/favorites' => 'posts#unfavorite'
 
+  # comments
+  post '/comments' => 'comments#create'
+
   # users
   get '/users/show_favs' => 'favorites#show_favs'
   # The priority is based upon order of creation: first created -> highest priority.

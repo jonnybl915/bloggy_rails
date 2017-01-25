@@ -26,6 +26,7 @@
     <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
     <p>Post created by: <%=User.find(@post.user_id).email   %></p>
 
+    <hr>
 
     <h4>- Comments -</h4>
 
@@ -34,21 +35,20 @@
     <% end %>
 
     <ul>
-     <%= @comments.each do |comment| %>
-      <li <%= comment.body%> <p> by: <%=comment.user.email%> </p>  </li>
+     <% @comments.each do |comment| %>
+      <li>  <p> by: <%=comment.user.email%> </p>  </li>
+          <p><%= comment.body %></p>
      <% end %>
     </ul>
 
-    <button id="comment-button">Create Comment</button>
-
-    <%= form_tag '/comments' do %>
-      <p>Body</p>
+    <%= form_tag '/comments', method: :post do %>
       <input type="text" id="comment-form" placeholder="body..." name="body">
-      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <input type="hidden" name="post_id" value="<%= @post.id %>">
       <button>Create Comment</button>
     <% end %>
-
-    meanwhile, <a href="/">back home...</a>
+    <hr>
+    <p> meanwhile, <a href="/">back home...</a> </p>
 
   </body>
 

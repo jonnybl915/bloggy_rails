@@ -24,6 +24,7 @@
 }
 .star {
     vertical-align: inherit;
+    cursor: pointer;
 }
 .star-button {
     background: white;
