@@ -1,0 +1,21 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/assets/stylesheets/applications.css">
+</head>
+
+<body>
+<div id="app-container">
+  <strong>
+    Comment Away!
+  </strong>
+
+  <%= form_tag '/comments' do %>
+      <p>Body</p>
+      <input type="text" placeholder="body..." name="body">
+      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <button>Create Comment</button>
+  <% end %>
+</div>
+</body>
+</html>

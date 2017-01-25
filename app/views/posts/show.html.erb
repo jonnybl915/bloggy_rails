@@ -2,6 +2,7 @@
 
   <head>
     <title> Posts </title>
+    <script src="/Users/jblack/RubyMineProjects/bloggy/app/assets/javascripts/application.js"></script>
   </head>
 
   <body>
@@ -20,14 +21,21 @@
       <p> be the first to comment! </p>
     <% end %>
 
-    <a href="/comments/new">Create Comment</a>
-
     <ul>
      <%= @comments.each do |comment| %>
       <li <%= comment.body%> <p> by: <%=comment.user.email%> </p>  </li>
      <% end %>
     </ul>
-git
+
+    <button id="comment-button">Create Comment</button>
+
+    <%= form_tag '/comments' do %>
+      <p>Body</p>
+      <input type="text" id="comment-form" placeholder="body..." name="body">
+      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <button>Create Comment</button>
+  <% end %>
+
     meanwhile, <a href="/">back home...</a>
 
   </body>

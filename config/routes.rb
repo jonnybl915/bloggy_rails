@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/sign_in' => 'users#sign_in'
   post '/sign_in' => 'users#sign_in'
 
+  post '/comments' => 'comments#create'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

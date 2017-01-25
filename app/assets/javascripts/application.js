@@ -14,3 +14,15 @@
 //= require react_ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+$(document).ready(function() {
+
+    $('#comment-form').hide();
+
+    $('#comment-button').click(function() {
+        $('#comment-form').show();
+
+    });
+});
