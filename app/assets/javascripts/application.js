@@ -17,12 +17,13 @@
 
 
 
-$(document).ready(function() {
-
-    $('#comment-form').hide();
-
-    $('#comment-button').click(function() {
-        $('#comment-form').show();
-
-    });
-});
+//
+// $(document).ready(function() {
+//
+//     $('#comment-form').hide();
+//
+//     $('#comment-button').click(function() {
+//         $('#comment-form').show();
+//
+//     });
+// });
