@@ -6,7 +6,7 @@
 
   <body>
     <div class="top-header">
-      <h1><%= @post.title %></h1>
+      <h1 class="post-title"><%= @post.title %></h1>
       <% if current_user.has_favorited?(@post) %>
         <%= form_tag "/posts/#{@post.id}/favorites", method: :delete do %>
               <input type="hidden" name="post_id" value="<%= @post.id %>">
@@ -42,13 +42,13 @@
     </ul>
 
     <%= form_tag '/comments', method: :post do %>
-      <input type="text" id="comment-form" placeholder="body..." name="body">
+      <input class="text-input" type="text" id="comment-form" placeholder="body..." name="body">
       <input type="hidden" name="user_id" value="<%= current_user.id %>">
       <input type="hidden" name="post_id" value="<%= @post.id %>">
-      <button>Create Comment</button>
+      <button class="create-btn">Create Comment</button>
     <% end %>
     <hr>
-    <p> meanwhile, <a href="/">back home...</a> </p>
+    <p class="footer-p"> meanwhile, <a href="/">back home...</a> </p>
 
   </body>
 

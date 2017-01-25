@@ -21,6 +21,7 @@
 
 .top-header {
     display: flex;
+    text-align: center;
 }
 .star {
     vertical-align: inherit;
@@ -33,6 +34,15 @@
 }
 .fav-line {
     display: flex;
+}
+.create-btn {
+    padding-bottom: 5px;
+}
+.footer-p {
+    padding-top: 3px;
+}
+.text-input {
+    margin-bottom: 15px;
 }
 
 
