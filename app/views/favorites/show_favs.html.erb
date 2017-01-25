@@ -7,7 +7,17 @@
     <h3>Favorites</h3>
 
     <% current_user.favorites.each do |fav| %>
-        <a href="/posts/<%= fav.post.id %>"> <p><%=fav.post.title%> </a> | |<%=truncate(fav.post.body, length: 50)%></p>
+        <div class="fav-line">
+     <p>  <a style="text-decoration: none" href="/posts/<%= fav.post.id %>"> <%=fav.post.title%> </a>  | |  <%=truncate(fav.post.body, length: 50)%>
+
+       <%= form_tag "/posts/#{fav.post.id}/favorites", method: :delete do %>
+           <input type="hidden" name="post_id" value="<%= fav.post.id %>">
+           <!--<button> unfavorite </button>-->
+           <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
+       <% end %>
+
+     </p>
+        </div>
     <% end %>
   </div>
 
