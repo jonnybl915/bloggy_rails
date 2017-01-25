@@ -9,8 +9,11 @@
           <button type="submit" >Log In</button>
       <% end %>
   <% end %>
-
-
+  <% if current_user != nil %>
+      <%= form_tag '/users/show_favs', method: :get do %>
+          <button type="submit" >Favorites</button>
+      <% end %>
+  <% end %>
 
   <a href="/posts/new">Create a Post</a>
   <table>

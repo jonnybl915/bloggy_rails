@@ -1,0 +1,16 @@
+<html>
+<body>
+  <h1>Dashboard!!</h1>
+
+  <div class="favs">
+
+    <h3>Favorites</h3>
+
+    <% current_user.favorites.each do |fav| %>
+      <p><%=fav.post.title%> | |<%=fav.post.body%></p>
+
+        <% end %>
+  </div>
+
+</body>
+</html>
