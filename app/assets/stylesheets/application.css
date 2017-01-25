@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+.top-header {
+    display: flex;
+}
+.star {
+    vertical-align: inherit;
+}
+.star-button {
+    background: white;
+    border-radius: 30px;
+    border: white;
+}
+
+

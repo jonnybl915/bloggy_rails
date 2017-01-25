@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   post '/comments' => 'comments#create'
 
+  post 'posts/:id/favorites' => 'posts#favorite'
+  delete 'posts/:id/favorites' => 'posts#unfavorite'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

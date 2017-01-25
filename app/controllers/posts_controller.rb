@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     @comments = @post.comments
+
   end
   def create
     Post.create(
@@ -30,5 +31,19 @@ class PostsController < ApplicationController
             body: params[:body]
     )
     redirect_to '/'
+  end
+  def favorite
+    Favorite.where(
+                user_id: current_user.id,
+                post_id: params[:post_id]
+    ).first_or_create
+    redirect_to("/posts/#{params[:post_id]}")
+  end
+  def unfavorite
+    Favorite.where(
+        user_id: current_user.id,
+        post_id: params[:post_id]
+    ).delete_all
+    redirect_to("/posts/#{params[:post_id]}")
   end
 end

@@ -2,13 +2,25 @@
 
   <head>
     <title> Posts </title>
-    <script src="/Users/jblack/RubyMineProjects/bloggy/app/assets/javascripts/application.js"></script>
   </head>
 
   <body>
-
-    <h1><%= @post.title %></h1>
-
+    <div class="top-header">
+      <h1><%= @post.title %></h1>
+      <% if current_user.has_favorited?(@post) %>
+        <%= form_tag "/posts/#{@post.id}/favorites", method: :delete do %>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+         <!--<button> unfavorite </button>-->
+              <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
+        <% end %>
+      <% else %>
+        <%= form_tag "/posts/#{@post.id}/favorites" do %>
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
+              <!--<button> favorite </button>-->
+         <button class="star-button"> <%= image_tag('star.svg', size: '30x30', :class => 'star')%> </button>
+        <% end %>
+      <% end %>
+    </div>
     <p><%= @post.body %></p>
 
     <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
@@ -34,7 +46,7 @@
       <input type="text" id="comment-form" placeholder="body..." name="body">
       <input type="hidden" name="user" value="<%= current_user.id %>">
       <button>Create Comment</button>
-  <% end %>
+    <% end %>
 
     meanwhile, <a href="/">back home...</a>
 
