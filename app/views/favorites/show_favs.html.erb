@@ -7,9 +7,8 @@
     <h3>Favorites</h3>
 
     <% current_user.favorites.each do |fav| %>
-      <p><%=fav.post.title%> | |<%=fav.post.body%></p>
-
-        <% end %>
+        <a href="/posts/<%= fav.post.id %>"> <p><%=fav.post.title%> </a> | |<%=truncate(fav.post.body, length: 50)%></p>
+    <% end %>
   </div>
 
 </body>
