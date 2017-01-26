@@ -11,13 +11,13 @@
         <%= form_tag "/posts/#{@post.id}/favorites", method: :delete do %>
               <input type="hidden" name="post_id" value="<%= @post.id %>">
          <!--<button> unfavorite </button>-->
-              <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
+              <button id="favorite" class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
         <% end %>
       <% else %>
         <%= form_tag "/posts/#{@post.id}/favorites" do %>
               <input type="hidden" name="post_id" value="<%= @post.id %>">
               <!--<button> favorite </button>-->
-         <button class="star-button"> <%= image_tag('star.svg', size: '30x30', :class => 'star')%> </button>
+         <button id="favorite" class="star-button"> <%= image_tag('star.svg', size: '30x30', :class => 'star')%> </button>
         <% end %>
       <% end %>
     </div>
@@ -27,7 +27,7 @@
       <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
     <% end %>
 
-    <p>Post created by: <%=@post.user.email   %></p>
+    <p>Post created by: <%=@post.user   %></p>
 
     <hr>
 

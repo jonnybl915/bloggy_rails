@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'rake', '~> 12.0.0'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug'

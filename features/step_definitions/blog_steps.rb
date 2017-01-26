@@ -16,32 +16,33 @@ And(/^I am in the posts' followers$/) do
 end
 
 Given(/^I'm logged in$/) do
-  @user = User.create! email: 'a@b.com', password: 'pass'
+  @user = User.create! email: 'a@b.com', password: 'password'
   
   visit '/users/sign_in'
   fill_in 'user_email', with: 'a@b.com'
-  fill_in 'user_password', with: 'pass'
-  click_on 'Sign in'
+  fill_in 'user_password', with: 'password'
+  click_on 'Log in'
   
 end
 
 And(/^I'm viewing "([^"]*)"$/) do |title|
-  post = Post.create! title: title
-  visit "/posts/#{post.id}"
-  
-  click_on '#add_favorite'
+  @post = Post.create!(title: title, body: 'body', user_id: @user.id)
+  visit "/posts/#{@post.id}"
+  save_and_open_page
+  click_on 'favorite'
   
 end
 
 When(/^I click the favorite button$/) do
   # Model
-  expect(@user.favorites).to include? @post
+  expect(@user.favorite_posts).to include @post
   
   #view
-  visit '/dashboard'
-  expect(page).to have_content title
+  visit '/users/show_favs'
+  expect(page).to have_content 'How to Ruby'
 end
 
 Then(/^"([^"]*)" should show up in my favorites$/) do |arg|
-  pending
+  visit '/users/show_favs'
+  expect(page).to have_content arg
 end

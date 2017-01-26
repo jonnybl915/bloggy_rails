@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :favorites
-  has_many :posts, through: :favorites
+  has_many :favorite_posts, through: :favorites, source: :post
 
   def has_favorited?(post)
     Favorite.find_by(user_id: id, post_id: post.id) != nil
+  end
+  def add_favorite(post)
+    Favorite.create(user_id: id, post_id: post.id)
   end
 end
