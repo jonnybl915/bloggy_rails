@@ -1,0 +1,12 @@
+<% current_user.favorites.each do |fav| %>
+    <div class="fav-line">
+      <p>  <a style="text-decoration: none" href="/posts/<%= fav.post.id %>"> <%=fav.post.title%> </a>  | |  <%=truncate(fav.post.body, length: 50)%>
+
+        <%= form_tag "/posts/#{fav.post.id}/favorites", method: :delete, remote: true do %>
+            <input type="hidden" name="post_id" value="<%= fav.post.id %>">
+
+            <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
+        <% end %>
+      </p>
+    </div>
+<% end %>

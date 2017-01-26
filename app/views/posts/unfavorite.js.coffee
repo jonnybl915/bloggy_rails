@@ -1,0 +1,1 @@
+$('.favs-partial').html("<%= escape_javascript render 'favorites' %>")

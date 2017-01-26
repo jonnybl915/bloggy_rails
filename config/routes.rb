@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/comments' => 'comments#create'
 
   post 'posts/:id/favorites' => 'posts#favorite'
+
   delete 'posts/:id/favorites' => 'posts#unfavorite'
 
   # comments
