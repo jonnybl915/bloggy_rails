@@ -21,6 +21,14 @@
         <% end %>
       <% end %>
     </div>
+    <div class="nav">
+    <% if current_user != nil %>
+      <%= form_tag '/users/sign_out', method: :delete do %>
+          <button class="nav-btn" type="submit" >Log Out</button>
+      <% end %>
+    <% end %>
+    </div>
+
     <p><%= @post.body %></p>
 
     <% if current_user.id == @post.user_id %>
