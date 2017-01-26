@@ -8,6 +8,24 @@
 </head>
 <body>
 
+<div class="nav">
+  <% if current_user == nil %>
+      <%= form_tag '/users/sign_in' do %>
+          <button class="nav-btn" type="submit" >Log In</button>
+      <% end %>
+  <% end %>
+  <% if current_user != nil %>
+      <%= form_tag '/users/sign_out', method: :delete do %>
+          <button class="nav-btn" type="submit" >Log Out</button>
+      <% end %>
+  <% end %>
+  <% if current_user != nil %>
+      <%= form_tag '/users/show_favs', method: :get do %>
+          <button class="nav-btn" type="submit" >Favorites</button>
+      <% end %>
+  <% end %>
+</div>
+
 <%= yield %>
 
 <% if Rails.env.development? %>
