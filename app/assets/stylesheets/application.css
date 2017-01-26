@@ -18,10 +18,20 @@
     box-sizing: border-box;
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
-
+body {
+    background: #E0EAFC; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #E0EAFC , #CFDEF3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #E0EAFC , #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h3 {
+    font-weight: lighter;
+    text-decoration: underline;
+}
 .top-header {
     display: flex;
     text-align: center;
+    font-size: 42px;
+    font-weight: lighter;
 }
 .star {
     vertical-align: inherit;
@@ -61,8 +71,10 @@ th {
 
 .header {
     text-align: center;
-    text-decoration: underline;
-    padding-top: 15px;
+    padding-top: 20px;
+    font-size: 60px;
+    font-weight: lighter;
+    margin-bottom: auto;
 }
 
 .create-link {
@@ -82,3 +94,5 @@ a {
     text-decoration: none;
 
 }
+
+
