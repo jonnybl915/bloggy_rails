@@ -4,22 +4,27 @@
 
   <div class="favs">
 
-    <h3>Favorites</h3>
+    <% if current_user.favorites.count == 0 %>
+        <h3>Click the Star Next to Post Titles to Add Favorites</h3>
+    <% else %>
+        <h3>Favorites</h3>
+        <% current_user.favorites.each do |fav| %>
+            <div class="fav-line">
+         <p>  <a style="text-decoration: none" href="/posts/<%= fav.post.id %>"> <%=fav.post.title%> </a>  | |  <%=truncate(fav.post.body, length: 50)%>
 
-    <% current_user.favorites.each do |fav| %>
-        <div class="fav-line">
-     <p>  <a style="text-decoration: none" href="/posts/<%= fav.post.id %>"> <%=fav.post.title%> </a>  | |  <%=truncate(fav.post.body, length: 50)%>
+           <%= form_tag "/posts/#{fav.post.id}/favorites", method: :delete do %>
+               <input type="hidden" name="post_id" value="<%= fav.post.id %>">
+               <!--<button> unfavorite </button>-->
+               <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
+           <% end %>
 
-       <%= form_tag "/posts/#{fav.post.id}/favorites", method: :delete do %>
-           <input type="hidden" name="post_id" value="<%= fav.post.id %>">
-           <!--<button> unfavorite </button>-->
-           <button class="star-button"><%= image_tag('star-1.svg', size: '30x30', :class => 'star')%></button>
-       <% end %>
-
-     </p>
-        </div>
-    <% end %>
+         </p>
+            </div>
+        <% end %>
+     <% end %>
   </div>
-
+  <footer>
+   <p class="footer-p"> <a href="/">back to posts</a> </p>
+  </footer>
 </body>
 </html>
