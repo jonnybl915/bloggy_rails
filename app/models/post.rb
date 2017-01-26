@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
  has_many :comments
  has_many :favorites
 
+
  def isfavorite?(post)
   Favorite.find_by(user_id: id, post_id: post.id) != nil
  end

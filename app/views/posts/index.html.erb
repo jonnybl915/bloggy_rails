@@ -33,6 +33,7 @@
         <td><hr></td>
       </tr>
       <tbody>
+
         <% @posts.each do |post| %>
           <tr class="table-row">
             <td> <a class="post-title" href="/posts/<%= post.id %>"> <%= post.title %> </a> </td>
@@ -43,6 +44,7 @@
             <td><hr></td>
           </tr>
         <% end %>
+        <%= will_paginate @posts %>
       </tbody>
     </table>
 
