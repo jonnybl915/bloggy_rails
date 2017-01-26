@@ -23,7 +23,10 @@
     </div>
     <p><%= @post.body %></p>
 
-    <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
+    <% if current_user.id == @post.user_id %>
+      <a href="/posts/edit/<%= @post.id %>">Edit Post</a>
+    <% end %>
+
     <p>Post created by: <%=User.find(@post.user_id).email   %></p>
 
     <hr>

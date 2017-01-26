@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   # users
   get '/users/show_favs' => 'favorites#show_favs'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
