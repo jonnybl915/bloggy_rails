@@ -18,3 +18,23 @@ Then(/^I am logged in$/) do
   expect(page).to have_content 'All Posts'
 end
 
+
+Given(/^That (\S+) does not have an account$/) do |email|
+  expect(User.find_by(email: email)).to eq nil
+end
+
+# step here taken care of above #
+
+And(/^I try to log in as (\S+)$/) do |email|
+  fill_in('user_email', with: email)
+  fill_in('user_password', with: 'password')
+  click_on('Log in')
+end
+
+Then(/^I am still on the login page$/) do
+  expect(page).to have_content 'Log in'
+end
+
+And(/^I should see that the email\/password combination is invalid$/) do
+  expect(page).to have_content 'Invalid Email or password'
+end
