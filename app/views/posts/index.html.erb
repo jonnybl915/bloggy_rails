@@ -1,48 +1,51 @@
 <html>
 <head>
-  <title>all posts</title>
-  <h2>All Posts</h2>
+  <body>
+    <h2 class="header">All Posts</h2>
 
-
-  <% if current_user == nil %>
-      <%= form_tag '/users/sign_in' do %>
-          <button type="submit" >Log In</button>
+    <div class="nav">
+      <% if current_user == nil %>
+        <%= form_tag '/users/sign_in' do %>
+          <button class="nav-btn" type="submit" >Log In</button>
+        <% end %>
       <% end %>
-  <% end %>
-  <% if current_user != nil %>
-      <%= form_tag '/users/show_favs', method: :get do %>
-          <button type="submit" >Favorites</button>
+      <% if current_user != nil %>
+        <%= form_tag '/users/sign_out', method: :delete do %>
+          <button class="nav-btn" type="submit" >Log Out</button>
+        <% end %>
       <% end %>
-  <% end %>
+      <% if current_user != nil %>
+        <%= form_tag '/users/show_favs', method: :get do %>
+          <button class="nav-btn" type="submit" >Favorites</button>
+        <% end %>
+      <% end %>
+    </div>
 
-  <a href="/posts/new">Create a Post</a>
-  <table>
-    <head>
+    <a class="create-link" href="/posts/new">Create a Post</a>
+
+    <table>
+      <div class="header-row">
+        <th><h3>Post</h3></th>
+        <th><h3>Description</h3></th>
+      </div>
       <tr>
-        <th>Post</th>
-        <th>Description</th>
+        <td><hr></td>
+        <td><hr></td>
       </tr>
-    </head>
-    <tbody>
-    <% @posts.each do |post| %>
-        <tr>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr class="table-row">
+            <td> <a class="post-title" href="/posts/<%= post.id %>"> <%= post.title %> </a> </td>
+            <td><%= post.body %> </td>
+          </tr>
+          <tr>
+            <td><hr></td>
+            <td><hr></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-          <td>
-            <a href="/posts/<%= post.id %>"> <%= post.title %> </a>
-          </td>
-
-          <td><%= post.body %> </td>
-
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-
-  <% if current_user != nil %>
-      <%= form_tag '/users/sign_out', method: :delete do %>
-          <button type="submit" >Log Out</button>
-      <% end %>
-  <% end %>
+  </body>
 </head>
 </html>
