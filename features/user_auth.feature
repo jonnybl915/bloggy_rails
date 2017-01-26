@@ -20,3 +20,4 @@ Feature: authenticating users
     Then I should be on the sign up page
     And I should see that the email is taken
     And there should be no new user account created
+
