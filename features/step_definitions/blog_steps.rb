@@ -28,7 +28,6 @@ end
 And(/^I'm viewing "([^"]*)"$/) do |title|
   @post = Post.create!(title: title, body: 'body', user_id: @user.id)
   visit "/posts/#{@post.id}"
-  save_and_open_page
   click_on 'favorite'
   
 end
@@ -45,4 +44,26 @@ end
 Then(/^"([^"]*)" should show up in my favorites$/) do |arg|
   visit '/users/show_favs'
   expect(page).to have_content arg
+end
+
+
+And(/^I'm viewing a post which I have already favorited$/) do
+  @post2 = Post.create!(title: 'this post is not my favorite anymore', body: 'body of post', user_id: @user.id)
+  @favorite = Favorite.create!(user_id: @user.id, post_id: @post2.id)
+  visit "posts/#{@post2.id}"
+  expect(@user.favorite_posts).to include @post2
+  click_on 'favorite'
+end
+
+When(/^I click the unfavorite button$/) do
+  # Model
+  expect(@user.favorite_posts.include? @post2).to eq false
+
+  #view
+  visit '/users/show_favs'
+  expect(page).to have_no_content(@post2.title)
+  end
+
+Then(/^that post is removed from my favorites$/) do
+  pending
 end
