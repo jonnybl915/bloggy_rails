@@ -2,7 +2,7 @@ Given(/^I do not have an account$/) do
   pending
 end
 
-And(/^I am on the sign up page$/) do
+Given(/^I am on the sign up page$/) do
   visit '/users/sign_up'
 end
 
@@ -15,15 +15,14 @@ end
 
 When(/^I register as (\S+)$/) do |email|
   save_and_open_page
-  fill_in '#user_email', with: email
-  fill_in '#user_password', with: 'password'
-  fill_in '#user_password_confirmaton', with: 'password'
+  fill_in 'user_email', with: email
+  fill_in 'user_password', with: 'password'
+  fill_in 'user_password_confirmation', with: 'password'
   click_on 'Sign up'
 end
 
 Then(/^I should be on the home page$/) do
   expect(page.has_content?('Home Page!')).to eq true
-  save_and_open_page
 end
 
 # And(/^I should see my email$/) do
@@ -47,9 +46,8 @@ Then(/^I should be on the sign up page$/) do
 end
 
 And(/^I should see that my passwords do not match$/) do
-  expect(page).to have_content "Passwords don't match"
+  expect(page).to have_content "Password confirmation doesn't match Password"
 end
-
 
 Given(/^(\S+) has an account$/) do |email|
   User.create!(email: email, password: 'password')

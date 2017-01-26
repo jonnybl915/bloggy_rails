@@ -15,7 +15,7 @@ Feature: authenticating users
 
   Scenario: registering a taken email address
     Given user@example.com has an account
-    And I should be on the sign up page
+    And I am on the sign up page
     When I register as user@example.com
     Then I should be on the sign up page
     And I should see that the email is taken

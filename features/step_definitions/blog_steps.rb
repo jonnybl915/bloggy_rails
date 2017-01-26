@@ -58,12 +58,10 @@ end
 When(/^I click the unfavorite button$/) do
   # Model
   expect(@user.favorite_posts.include? @post2).to eq false
-
-  #view
-  visit '/users/show_favs'
-  expect(page).to have_no_content(@post2.title)
   end
 
 Then(/^that post is removed from my favorites$/) do
-  pending
+  #view
+  visit '/users/show_favs'
+  expect(page).to have_no_content(@post2.title)
 end
