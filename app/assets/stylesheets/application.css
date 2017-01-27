@@ -40,6 +40,8 @@ h3 {
     background: #D5E2F6;
     border-radius: 30px;
     border: #D5E2F6;
+    padding-top: 10px;
+    padding-left: 7px;
 }
 .fav-line {
     display: flex;
