@@ -1,29 +1,25 @@
 <html>
 <body>
   <h1>Dashboard!!</h1>
-
   <div class="favs">
-
     <% if current_user.favorites.count == 0 %>
-        <h3>Click the Star Next to Post Titles to Add Favorites</h3>
+      <h3>Click the Star Next to Post Titles to Add Favorites</h3>
     <% else %>
-        <h3>Favorites</h3>
-
-        <div class="favs-partial">
-          <%= render 'posts/favorites' %>
-        </div>
-        <% end %>
+      <h3>Favorites</h3>
+      <div class="favs-partial">
+        <%= render 'posts/favorites' %>
+      </div>
+    <% end %>
   </div>
   <div class="my_posts">
     <% if current_user.posts.count == 0 %>
-        <h3>You should really post something</h3>
+      <h3>You should really post something</h3>
     <% else %>
-        <h3>Your Posts</h3>
-        <% current_user.posts.each do |post| %>
-          <%= "#{post.title} | |  #{post.body}" %>
-        <% end %>
+      <h3>Your Posts</h3>
+      <% current_user.posts.each do |post| %>
+          <p> <a style="text-decoration: none" href="/posts/<%= post.id %>"> <%=post.title%> </a> <%= " | |  #{post.body}" %> </p>
+      <% end %>
     <% end %>
-
   </div>
   <footer>
    <p class="footer-p"> <a href="/">back to posts</a> </p>

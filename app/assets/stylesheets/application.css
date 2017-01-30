@@ -24,7 +24,7 @@ body {
     background: linear-gradient(to left, #E0EAFC , #CFDEF3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 h3 {
-    font-weight: lighter;
+
     text-decoration: underline;
 }
 .top-header {
