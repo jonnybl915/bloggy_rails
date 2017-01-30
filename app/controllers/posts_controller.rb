@@ -59,4 +59,8 @@ class PostsController < ApplicationController
       format.js[]
     end
   end
+
+  def my_posts
+    @posts = Post.where(current_user.id == params[:post_id])
+  end
 end

@@ -17,4 +17,3 @@ Feature: favoriting a blog post
     And I'm viewing a post which I have already favorited
     When I click the unfavorite button
     Then that post is removed from my favorites
-

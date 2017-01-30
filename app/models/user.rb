@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :post
 
+  has_many :posts
+
   def has_favorited?(post)
     Favorite.find_by(user_id: id, post_id: post.id) != nil
   end

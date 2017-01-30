@@ -14,6 +14,17 @@
         </div>
         <% end %>
   </div>
+  <div class="my_posts">
+    <% if current_user.posts.count == 0 %>
+        <h3>You should really post something</h3>
+    <% else %>
+        <h3>Your Posts</h3>
+        <% current_user.posts.each do |post| %>
+          <%= "#{post.title} | |  #{post.body}" %>
+        <% end %>
+    <% end %>
+
+  </div>
   <footer>
    <p class="footer-p"> <a href="/">back to posts</a> </p>
   </footer>
